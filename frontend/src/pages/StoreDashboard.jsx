@@ -43,7 +43,7 @@ function StoreDashboard() {
 
         <div className="mb-4">
           <p className="text-lg">
-            📊 Average Rating:{" "}
+             Average Rating:{" "}
             <span className="font-semibold">
               {average ? Number(average).toFixed(2) : "N/A"}
             </span>
