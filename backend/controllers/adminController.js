@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const bcrypt = require('bcryptjs');
 
-// Add a user (Admin creates a user manually)
+
 exports.addUser = async (req, res) => {
   const { name, email, password, address, role } = req.body;
   try {
@@ -16,7 +16,7 @@ exports.addUser = async (req, res) => {
   }
 };
 
-// Add a store
+
 exports.addStore = (req, res) => {
   const { name, email, address, owner_id } = req.body;
   const sql = 'INSERT INTO stores (name, email, address, owner_id) VALUES (?, ?, ?, ?)';
@@ -26,7 +26,7 @@ exports.addStore = (req, res) => {
   });
 };
 
-// Get dashboard stats
+
 exports.getStats = (req, res) => {
   db.query(
     `SELECT 
@@ -40,7 +40,6 @@ exports.getStats = (req, res) => {
   );
 };
 
-// List all users (admin + normal)
 exports.getUsers = (req, res) => {
   const sql = `SELECT id, name, email, address, role FROM users`;
   db.query(sql, (err, results) => {
@@ -49,7 +48,6 @@ exports.getUsers = (req, res) => {
   });
 };
 
-// List all stores
 exports.getStores = (req, res) => {
   const sql = `
     SELECT s.id, s.name, s.email, s.address, u.name AS owner_name,
